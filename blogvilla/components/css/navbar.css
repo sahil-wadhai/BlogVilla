@@ -1,0 +1,29 @@
+.nav
+{
+    @apply 
+    xl:container xl:mx-auto flex flex-col items-center sm:flex-row sm:justify-between text-center py-3
+}
+
+.searchBox
+{
+    @apply
+    md:flex-none w-96 order-2 sm:order-1 flex justify-center py-4 sm:py-0
+}
+
+
+.brand
+{
+    @apply 
+    shrink w-80 sm:order-2 hover:text-orange-400
+}
+
+.icon
+{
+    @apply
+    text-3xl mr-3 cursor-pointer text-gray-700 hover:text-orange-400
+}
+
+.input-text{
+    @apply mt-1 block w-60 px-3 py-2 bg-white border border-slate-300 rounded-full text-sm shadow-sm placeholder-slate-500;
+    @apply focus:outline-none focus:border-red-400 focus:ring-1 focus:ring-red-400;
+}
