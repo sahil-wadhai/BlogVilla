@@ -44,7 +44,7 @@ class User(BaseModel):
         schema_extra = {
             "example": {
                 "firstname": "Jane",
-                "lastname": "Doe",
+                "lastname": "Doee",
                 "username": "Doe123",
                 "email": "jdoe@example.com",
                 "age": 22,
