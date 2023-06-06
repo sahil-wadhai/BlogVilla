@@ -5,7 +5,7 @@ import os
 from pydantic import BaseModel,Field,EmailStr
 
 
-load_dotenv()
+load_dotenv('.env')
 
 client = motor.motor_asyncio.AsyncIOMotorClient(os.getenv("MONGODB_URL"))
 
@@ -77,3 +77,13 @@ class UserResponse(BaseModel):
             }
         }
 
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+class TokenData(BaseModel):
+    id: str | None = None
+
+class PasswordReset(BaseModel):
+    email:EmailStr
