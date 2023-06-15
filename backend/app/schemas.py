@@ -1,3 +1,5 @@
+from typing import Optional
+
 import motor.motor_asyncio
 from dotenv import load_dotenv
 from bson import ObjectId
@@ -33,6 +35,7 @@ class User(BaseModel):
     lastname: str = Field(...)
     username: str = Field(...)
     email: EmailStr
+    imageUrl : Optional[str]
     age: int= Field(...)
     about: str = Field(...)
     password: str = Field(...)
@@ -59,6 +62,7 @@ class UserResponse(BaseModel):
     lastname: str = Field(...)
     username: str = Field(...)
     email: EmailStr
+    imageUrl : Optional[str]
     age: int= Field(...)
     about: str = Field(...)
 
@@ -83,7 +87,58 @@ class Token(BaseModel):
 
 
 class TokenData(BaseModel):
-    id: str | None = None
+    id:str
 
 class PasswordReset(BaseModel):
     email:EmailStr
+
+
+class Author(BaseModel):
+    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
+    name: str = Field(...)
+    about: str = Field(...)
+
+class Blog(BaseModel):
+    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
+    title: str = Field(...)
+    description: str = Field(...)
+    content: str = Field(...)
+
+    class Config:
+        allow_population_by_field_name = True
+        arbitrary_types_allowed = True
+        json_encoders = {ObjectId: str}
+        schema_extra = {
+            "example": {
+                "title": "Api Development",
+                "description": "its about fastapi",
+                "content": "fastapi do that and do that"
+            }
+        }
+
+class BlogResponse(BaseModel):
+    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
+    title: str = Field(...)
+    description: str = Field(...)
+    content: str = Field(...)
+    created_at : str = Field(...)
+    author_id : str = Field(...)
+    author_name : str = Field(...)
+
+    class Config:
+        allow_population_by_field_name = True
+        arbitrary_types_allowed = True
+        json_encoders = {ObjectId: str}
+        schema_extra = {
+            "example": {
+                "title": "Api Development",
+                "description": "its about fastapi",
+                "content": "fastapi do that and do that",
+                "created_at":"01/01/2023",
+                "author_id": "author1234",
+                "author_name": "john doe"
+            }
+        }
+
+class ImageUrl(BaseModel):
+    imageUrl:str

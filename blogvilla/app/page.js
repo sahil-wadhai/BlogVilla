@@ -1,16 +1,13 @@
-import Navbar from "@/components/Navbar"
 import Header from "@/components/Header"
-import Blog from "@/components/Blog"
-import Footer from "@/components/Footer"
+import BlogSection from "@/components/BlogSection"
+
 
 export default function Home() {
   
   return (
-    <> 
-      <Navbar/>
+    <>    
       <Header/>
-      <Blog/>
-      <Footer/>
+      <BlogSection/>
     </>
   )
 }
