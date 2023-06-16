@@ -39,8 +39,8 @@ async def get_blogs( limit:int = 10 , order_by:str = "created_at"):
     raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,detail="Internal server error")
   
 
-@router.get("/{id}" , response_description="List Blogs",response_model=BlogResponse)
-async def get_blogs(id:str):
+@router.get("/{id}" , response_description="Single blog",response_model=BlogResponse)
+async def get_blog(id:str):
   try:
     blog = await db["blogs"].find_one({"_id":id})
     if blog is None:

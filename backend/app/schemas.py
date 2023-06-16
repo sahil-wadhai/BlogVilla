@@ -92,12 +92,6 @@ class TokenData(BaseModel):
 class PasswordReset(BaseModel):
     email:EmailStr
 
-
-class Author(BaseModel):
-    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
-    name: str = Field(...)
-    about: str = Field(...)
-
 class Blog(BaseModel):
     id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
     title: str = Field(...)
@@ -110,6 +104,7 @@ class Blog(BaseModel):
         json_encoders = {ObjectId: str}
         schema_extra = {
             "example": {
+                "id":"121212m12m",
                 "title": "Api Development",
                 "description": "its about fastapi",
                 "content": "fastapi do that and do that"
@@ -131,6 +126,7 @@ class BlogResponse(BaseModel):
         json_encoders = {ObjectId: str}
         schema_extra = {
             "example": {
+                "id":"121212m12m",
                 "title": "Api Development",
                 "description": "its about fastapi",
                 "content": "fastapi do that and do that",
