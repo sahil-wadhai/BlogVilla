@@ -2,6 +2,7 @@
 import { useState , useEffect} from "react"
 import axios from 'axios'
 import BlogCard from './BlogCard'
+import Link from "next/link";
 
 export default function BlogSection() {
 
@@ -34,7 +35,9 @@ export default function BlogSection() {
         </div>
         <div className="mx-auto mt-4 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {blogList.map((blog) => (
-              <BlogCard key={blog.id} blog={blog} />
+            <Link className="m-0 p-0" href={`/blogs/${blog._id}`}>
+              <BlogCard key={blog._id} blog={blog} />
+            </Link>  
           ))}
         </div>
       </div>

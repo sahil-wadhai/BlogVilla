@@ -104,7 +104,6 @@ class Blog(BaseModel):
         json_encoders = {ObjectId: str}
         schema_extra = {
             "example": {
-                "id":"121212m12m",
                 "title": "Api Development",
                 "description": "its about fastapi",
                 "content": "fastapi do that and do that"
@@ -126,7 +125,7 @@ class BlogResponse(BaseModel):
         json_encoders = {ObjectId: str}
         schema_extra = {
             "example": {
-                "id":"121212m12m",
+                "_id":"121212m12m",
                 "title": "Api Development",
                 "description": "its about fastapi",
                 "content": "fastapi do that and do that",
