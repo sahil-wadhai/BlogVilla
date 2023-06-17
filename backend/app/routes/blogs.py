@@ -1,6 +1,7 @@
 from fastapi import APIRouter , HTTPException , status , Depends
 from ..schemas import db,User,UserResponse,Blog,BlogResponse
 from fastapi.encoders import jsonable_encoder
+from fastapi.responses import JSONResponse
 from ..utils import get_password_hash
 import secrets
 from ..oath2 import get_current_user
@@ -50,7 +51,7 @@ async def get_blog(id:str):
   except:
     raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,detail="Internal server error")
   
-@router.get("/{id}/delete" , response_description="Delete a blog")
+@router.delete("/{id}" , response_description="Delete a blog")
 async def get_blog(id:str,current_user=Depends(get_current_user) ):
   try:
     blog = await db["blogs"].find_one({"_id":id})
@@ -59,7 +60,7 @@ async def get_blog(id:str,current_user=Depends(get_current_user) ):
     
     if current_user["_id"] == blog["author_id"]:
       res = await db["blogs"].delete_one({"_id":id})
-      return {"status":"Blog is deleted sucessfully"}
+      return {"status":"Blog deleted"}
     else:
       raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,detail="unauthorized access")
   
