@@ -1,11 +1,10 @@
+import Login from "@/components/Login"
 
 const write = () => {
   return (
-    <>
-    <div className="h-full">
-      <h1>hi</h1>
-    </div>   
-    </>
+    <div className="h-screen">
+      <Login/>  
+    </div>
   )
 }
 
