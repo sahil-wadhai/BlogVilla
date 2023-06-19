@@ -2,7 +2,7 @@
 import {useState,useEffect} from "react";
 import axios from "axios";
 
-const Login = () => {
+const Login = ({setToken}) => {
   const [username,setUsername] = useState("");
   const [password,setPassword] = useState("");
 
@@ -18,8 +18,10 @@ const Login = () => {
     try
     {
       const res = await axios.post("http://127.0.0.1:8000/login",data,config);
-      const token = res.data;
-      console.log(token);
+      const tokenData = res.data;
+      localStorage.setItem("token",tokenData["access_token"])
+      setToken(tokenData["access_token"]);
+      console.log(tokenData["access_token"]);
     }
     catch(err)
     {
@@ -32,12 +34,12 @@ const Login = () => {
   }
 
   return (
-    <div className="w-1/2 p-5 mx-auto">
+    <div className="w-2/3 mx-auto">
       <form onSubmit={handleSubmit}>
         <div className="mb-6">
           <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-800">Your email</label>
           <input type="text" id="username" className="shadow-sm bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required 
-            value={username} onChange={(e)=>{setUsername(e.target.value)}}
+            value={username} onChange={ (e)=>{setUsername(e.target.value)} }
           />
         </div>
         <div className="mb-6">

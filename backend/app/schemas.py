@@ -124,7 +124,7 @@ class BlogResponse(BaseModel):
         arbitrary_types_allowed = True
         json_encoders = {ObjectId: str}
         schema_extra = {
-            "example": {
+            "Blog Response": {
                 "_id":"121212m12m",
                 "title": "Api Development",
                 "description": "its about fastapi",

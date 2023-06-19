@@ -17,7 +17,7 @@ router = APIRouter(
 @router.post("/create" , response_description="Create a Blog",response_model=BlogResponse)
 async def create_blog( blog:Blog, current_user=Depends(get_current_user) ):
   try:
-    print(current_user)
+    # print(current_user)
     blog = jsonable_encoder(blog)
     blog["created_at"] = str(date.today())
     blog["author_id"] = current_user["_id"]
