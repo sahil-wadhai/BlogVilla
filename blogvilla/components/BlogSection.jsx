@@ -33,7 +33,7 @@ export default function BlogSection() {
             />
           </div>
         </div>
-        <div className="mx-auto mt-4 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto mt-4 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-8 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none md:grid-cols-2 lg:grid-cols-3">
           {blogList.map((blog) => (
             <Link key={`${blog._id}`} className="m-0 p-0" href={`/blogs/${blog._id}`}>
               <BlogCard  blog={blog} />

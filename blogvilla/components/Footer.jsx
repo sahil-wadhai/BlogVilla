@@ -1,8 +1,8 @@
-
+"use client"
 const Footer = () => {
   return (
     <>   
-    <footer className="bg-white rounded-lg shadow border mt-4 mx-3 mb-1">
+    <footer className="block bg-white rounded-lg shadow border mt-4 mx-3 mb-1">
         <div className="w-full max-w-screen-xl mx-auto p-4 md:py-4">
             <div className="sm:flex sm:items-center sm:justify-between">
                 <a href="https://flowbite.com/" className="flex items-center mb-4 sm:mb-0">

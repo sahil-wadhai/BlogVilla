@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import axios from "axios";
 import { useState,useEffect } from "react";
 import parse from 'html-react-parser';
@@ -17,7 +17,6 @@ const pg = ({params}) =>
   },[])
   return ( 
     <>
-      <p>hi</p>
       {parse(`${blog.content}`)}
     </>
   )

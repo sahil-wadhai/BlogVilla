@@ -7,7 +7,7 @@ const write = () => {
   const [token,setToken] = useState(localStorage.getItem("token"));
   return (
     <>
-    <div className="mt-4 h-screen w-2/3 mx-auto">
+    <div className="mt-4 min-h-screen mx-auto">
       {token? (<BlogForm token={token}/>) : (<Login setToken={setToken}/>) }
     </div>
     </>
