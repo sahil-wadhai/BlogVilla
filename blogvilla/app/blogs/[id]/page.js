@@ -1,13 +1,12 @@
 'use client';
 import axios from "axios";
 import { useState,useEffect } from "react";
-import parse from 'html-react-parser';
 
-// import { useRouter } from 'next/navigation'
-
+import Blog from '@/components/Blog'
+//{parse(`${blog.content}`)}
 const pg = ({params}) =>
 {
-  // const router = useRouter()
+
   const [blog,setBlog] = useState({});
   useEffect(()=>{
     axios.get(`http://127.0.0.1:8000/blogs/${params.id}`)
@@ -15,22 +14,13 @@ const pg = ({params}) =>
       setBlog(res.data)
     })
   },[])
+
   return ( 
     <>
-      {parse(`${blog.content}`)}
+      <Blog blog={blog}/>
     </>
   )
 }
-
-// export async function getServerSideProps(context)
-// {
-//   console.log(context);
-//   const res = await axios.get('http://127.0.0.1:8000/blogs/64868d7f7561b696aae57c36')
-//   postData = await res.data
-//   return {
-//     props:{postData}
-//   }
-// }
 
 export default pg
 

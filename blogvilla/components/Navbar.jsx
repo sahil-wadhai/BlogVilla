@@ -42,7 +42,7 @@ export default function Navbar() {
                   />
                   <img
                     className="hidden h-8 w-auto lg:block"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    src="/images/tailwindLogo.svg"
                     alt="Your Company"
                   />
                 </div>

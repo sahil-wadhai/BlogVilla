@@ -66,3 +66,16 @@ async def get_blog(id:str,current_user=Depends(get_current_user) ):
   
   except:
     raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,detail="Internal server error")
+  
+
+@router.get("" , response_description="List Blogs",response_model=list[BlogResponse])
+async def get_blogs( limit:int = 10 , order_by:str = "created_at", q:str=None):
+  try:
+    if(q):
+      pass
+    else:
+      blogs = await db["blogs"].find({ "$query":{}, "$orderby":{order_by:-1} }).to_list(limit)
+    return blogs
+  
+  except:
+    raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,detail="Internal server error")

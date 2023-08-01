@@ -5,7 +5,7 @@ const BlogCard = ({blog}) => {
     
     <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow lg:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-purple-900 dark:hover:bg-gray-700">
         <img className="object-cover w-full rounded-t-lg h-96 lg:h-full lg:w-48 md:rounded-none md:rounded-l-lg" src="/images/notebook.jpg" alt=""/>
-        <div className="flex flex-col justify-between px-4 leading-normal"> 
+        <div className="flex flex-col justify-between px-4 leading-normal overflow-hidden"> 
             <p className="text-xs text-gray-400 py-2">{blog.created_at}</p>
             <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{blog.title}</h5>
             <p className="mb-3 text-sm text-gray-900 dark:text-gray-400">{blog.description}</p>

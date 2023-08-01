@@ -19,7 +19,7 @@ const Login = ({setToken}) => {
     {
       const res = await axios.post("http://127.0.0.1:8000/login",data,config);
       const tokenData = res.data;
-      localStorage.setItem("token",tokenData["access_token"])
+      sessionStorage.setItem("token",tokenData["access_token"])
       setToken(tokenData["access_token"]);
       console.log(tokenData["access_token"]);
     }

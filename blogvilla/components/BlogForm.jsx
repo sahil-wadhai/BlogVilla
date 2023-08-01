@@ -41,6 +41,9 @@ const BlogForm = ({ token }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     submitLogin();
+    setTitle("");
+    setDescription("");
+    setContent("");
   }
   return (
     <>

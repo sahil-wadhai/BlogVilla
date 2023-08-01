@@ -6,7 +6,7 @@ const Footer = () => {
         <div className="w-full max-w-screen-xl mx-auto p-4 md:py-4">
             <div className="sm:flex sm:items-center sm:justify-between">
                 <a href="https://flowbite.com/" className="flex items-center mb-4 sm:mb-0">
-                    <img src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" className="h-8 mr-3" alt="Flowbite Logo" />
+                    <img src="/images/tailwindLogo.svg" className="h-8 mr-3" alt="Flowbite Logo" />
                     <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
                 </a>
                 <div className="flex">
