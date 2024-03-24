@@ -1,20 +1,14 @@
-'use client';
-import axios from "axios";
-import { useState,useEffect } from "react";
-
 import Blog from '@/components/Blog'
 //{parse(`${blog.content}`)}
-const pg = ({params}) =>
-{
 
-  const [blog,setBlog] = useState({});
-  useEffect(()=>{
-    axios.get(`http://127.0.0.1:8000/blogs/${params.id}`)
-    .then((res)=>{
-      setBlog(res.data)
-    })
-  },[])
+async function get_blog(id){
+  const res = await fetch(`http://127.0.0.1:8000/blogs/${id}`)
+  const data = await res.json()
+  return data
+}
 
+export default async function page({params}) {
+  const blog = await get_blog(params.id)
   return ( 
     <>
       <Blog blog={blog}/>
@@ -22,6 +16,9 @@ const pg = ({params}) =>
   )
 }
 
-export default pg
+
+
+
+
 
 

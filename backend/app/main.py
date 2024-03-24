@@ -14,6 +14,7 @@ origins = [
     "http://localhost:3000"
 ]
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -25,9 +26,12 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"api": "blogVilla"}
 
 
 app.include_router(users.router)
 app.include_router(auth.router)
 app.include_router(blogs.router)
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

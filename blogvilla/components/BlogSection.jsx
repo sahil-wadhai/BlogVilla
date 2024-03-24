@@ -1,19 +1,9 @@
-"use client";
-import { useState , useEffect} from "react"
-import axios from 'axios'
+'use client'
 import BlogCard from './BlogCard'
 import Link from "next/link";
 
-export default function BlogSection() {
+export default function BlogSection({blogList}) {
 
-  const [blogList,setBlogList] = useState([{}]);
-
-  useEffect(()=>{
-    axios.get('http://127.0.0.1:8000/blogs')
-    .then((res)=>{
-      setBlogList(res.data)
-    })
-  },[])
 
   return (
     <div className="bg-white py-20 sm:py-32">

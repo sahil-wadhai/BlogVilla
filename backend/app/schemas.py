@@ -31,14 +31,14 @@ class PyObjectId(ObjectId):
 
 class User(BaseModel):
     id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
-    firstname: str = Field(...)
-    lastname: str = Field(...)
-    username: str = Field(...)
+    firstname: str = Field(...,min_length=2,max_length=15)
+    lastname: str = Field(...,min_length=2,max_length=15)
+    username: str = Field(...,min_length=2,max_length=15)
     email: EmailStr
     imageUrl : Optional[str]
-    age: int= Field(...)
+    age: int= Field(...,gt=5)
     about: str = Field(...)
-    password: str = Field(...)
+    password: str = Field(...,min_length=5,max_length=15)
 
     class Config:
         allow_population_by_field_name = True
@@ -58,12 +58,12 @@ class User(BaseModel):
 
 class UserResponse(BaseModel):
     id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
-    firstname: str = Field(...)
-    lastname: str = Field(...)
-    username: str = Field(...)
+    firstname: str = Field(...,min_length=2,max_length=15)
+    lastname: str = Field(...,min_length=2,max_length=15)
+    username: str = Field(...,min_length=2,max_length=15)
     email: EmailStr
     imageUrl : Optional[str]
-    age: int= Field(...)
+    age: int= Field(...,gt=5)
     about: str = Field(...)
 
     class Config:
